@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
-import joblib
+import joblib, os
 
 ## load the data into the dataset 
 df = pd.read_csv('heart-diseaseuci/heart.csv')
@@ -32,6 +32,9 @@ print(f'Accuracy: {accuracy}')
 print(f'Precision: {precision}')
 print(f'Recall: {recall}')
 print(f'F1 Score: {f1}')
+
+## make directory 
+os.makedirs('model', exist_ok=True)
 
 ## dump model using joblib 
 joblib.dump(model, 'model/heart_disease_model.pkl')
